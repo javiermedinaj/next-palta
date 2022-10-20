@@ -1,22 +1,62 @@
 import React from 'react'
 import Link from 'next/link'
+import {
+    Box,
+    Flex,
+    Button,
+    Menu,
+    MenuButton,
+    useColorModeValue,
+    Stack,
+    useColorMode,
+} from "@chakra-ui/react"
+import { MoonIcon, SunIcon } from "@chakra-ui/icons"
+import Avocado from './SVGIcons/Avocado'
 
-const Navbar = () => {
+export default function Navbar() {
+    const { colorMode, toggleColorMode } = useColorMode()
+
     return (
-        <div>
-            <menu>
-                <Link href="/">
-                    <a>Home</a>
-                </Link>
-                <Link href="/about">
-                    <a>About</a>
-                </Link>
-                <Link href="/product">
-                    <a>product</a>
-                </Link>
-            </menu>
-        </div>
+        <>
+            <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+                <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+                    <Box>
+                        <Link href="/">
+                            <a>Home</a>
+                        </Link>
+                    </Box>
+                    <Box>
+                        <Link href="/about">
+                            <a>About</a>
+                        </Link>
+                    </Box>
+                    <Box>
+                        <Link href="/product">
+                            <a>Products</a>
+                        </Link>
+                    </Box>
+                    <Flex alignItems={"center"}>
+                        <Stack direction={"row"} spacing={7}>
+                            <Button onClick={toggleColorMode}>
+                                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+                            </Button>
+                            <Menu>
+                                <MenuButton
+                                    as={Button}
+                                    rounded={"full"}
+                                    variant={"link"}
+                                    cursor={"pointer"}
+                                    minW={0}
+                                >
+                                    <Avocado />
+                                </MenuButton>
+                            </Menu>
+                        </Stack>
+                    </Flex>
+                </Flex>
+            </Box>
+        </>
+
     )
 }
 
-export default Navbar

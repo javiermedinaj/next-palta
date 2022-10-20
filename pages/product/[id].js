@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { Box, Container, Button, Stack, Image, Text } from '@chakra-ui/react'
 
 export default function avos1() {
     const { query: { id } } = useRouter()
@@ -17,13 +18,27 @@ export default function avos1() {
     console.log(avos)
 
     return (
-        <div>
-            <h1>{avos?.name}</h1>
-            <img src={avos?.image} />
-            <p> {avos?.price}</p>
-            <Link href="/product">
-                <a>volver atras</a>
-            </Link>
-        </div>
+        <Container>
+            <Box maxW="sm" borderRadius="lg" overflow="hidden"
+                mt={10}>
+                <Text p={5}>{avos?.name}</Text>
+                <Image src={avos?.image} borderRadius='full'
+                    objectFit='cover'
+                    mb={2} />
+                <Text p='2' m='1' bg='green.400'> Price : {avos?.price}</Text>
+                <Stack>
+                    <Link href="/product">
+                        <Button colorScheme='teal' variant='outline'>
+                            Volver atras
+                        </Button>
+                    </Link>
+                    <Link href="/carrito">
+                        <Button colorScheme='teal'>
+                            Agregar al carro
+                        </Button>
+                    </Link>
+                </Stack>
+            </Box>
+        </Container>
     )
 }
