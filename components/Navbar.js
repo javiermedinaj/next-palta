@@ -20,7 +20,7 @@ export default function Navbar() {
         <>
             <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
                 <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-                    <Box>
+                    <Box mr={1}>
                         <Link href="/">
                             <a>Home</a>
                         </Link>
@@ -30,14 +30,14 @@ export default function Navbar() {
                             <a>About</a>
                         </Link>
                     </Box>
-                    <Box>
+                    <Box p={1}>
                         <Link href="/product">
                             <a>Products</a>
                         </Link>
                     </Box>
                     <Flex alignItems={"center"}>
-                        <Stack direction={"row"} spacing={7}>
-                            <Button onClick={toggleColorMode}>
+                        <Stack direction={"row"} spacing={4}>
+                            <Button ml={2} onClick={toggleColorMode}>
                                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
                             </Button>
                             <Menu>

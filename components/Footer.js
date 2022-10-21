@@ -1,16 +1,17 @@
+import Link from 'next/link'
 import {
     Box,
     chakra,
     Container,
-    Link,
     SimpleGrid,
     Stack,
     Text,
     VisuallyHidden,
     useColorModeValue
 } from "@chakra-ui/react"
-import { FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa"
+import { FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa"
 import Avocado from './SVGIcons/Avocado'
+
 
 
 const SocialButton = ({ children, label, href }) => {
@@ -27,6 +28,7 @@ const SocialButton = ({ children, label, href }) => {
             alignItems={"center"}
             justifyContent={"center"}
             transition={"background 0.3s ease"}
+            target="_blank"
             _hover={{
                 bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200")
             }}
@@ -45,44 +47,48 @@ const ListHeader = ({ children }) => {
     )
 }
 
-export default function LargeWithNewsletter() {
+export default function Footer() {
     return (
         <Box
             bg={useColorModeValue("gray.50", "gray.900")}
             color={useColorModeValue("gray.700", "gray.200")}
-            mt={10}
+            mt={5}
         >
-            <Container as={Stack} maxW={"2xl"} py={10}>
+            <Container as={Stack} maxW={"6xl"} py={10}>
                 <SimpleGrid
                     templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 2fr" }}
-                    spacing={20}
+                    spacing={8}
                 >
-                    <Stack spacing={10}>
+                    <Stack spacing={6}>
                         <Box>
                             <Avocado />
                         </Box>
-                        <Text fontSize={"sm"}>
-                            Proyecto realizado en el curso de NextJs
-                        </Text>
+
                         <Stack direction={"row"} spacing={6}>
-                            <SocialButton label={"Twitter"} href={"#"}>
+                            <SocialButton label={"Twitter"} href={"https://twitter.com/medinajavierj"}>
                                 <FaTwitter />
                             </SocialButton>
-                            <SocialButton label={"YouTube"} href={"#"}>
-                                <FaLinkedinIn />
+                            <SocialButton label={"LinkedIn"} href={"https://www.linkedin.com/in/javier-medina-783b721a9/"}>
+                                <FaLinkedin />
                             </SocialButton>
-                            <SocialButton label={"Instagram"} href={"#"}>
+                            <SocialButton label={"Instagram"} href={"https://instagram.com/medinajavierj"}>
                                 <FaInstagram />
+                            </SocialButton>
+                            <SocialButton label={"GitHub"} href={"https://github.com/javiermedinaj?tab=repositories"}>
+                                <FaGithub />
                             </SocialButton>
                         </Stack>
                     </Stack>
                     <Stack align={"flex-start"}>
-                        <ListHeader>Proyect</ListHeader>
-                        <Link href={"/about"}>About us</Link>
-                        <Link href={"/product"}>Product</Link>
-                        <Link href={"/contacto"}>Contact</Link>
-                        <Link href={"/"}>Github</Link>
+                        <ListHeader>About</ListHeader>
+                        <Link href={"https://www.linkedin.com/in/javier-medina-783b721a9/"}>Contact</Link>
+                        <Link href="https://github.com/javiermedinaj?tab=repositories">My repositories</Link>
+                        <Link href="https://github.com/javiermedinaj/next-palta">Repository for this project</Link>
+                        <Link href="https://nextjs.org/">Framework</Link>
+                        <Link href={"https://chakra-ui.com/getting-started"}> Styles</Link>
                     </Stack>
+
+
                 </SimpleGrid>
             </Container>
         </Box>

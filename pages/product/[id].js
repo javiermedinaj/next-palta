@@ -15,7 +15,7 @@ export default function avos1() {
     useEffect(() => {
         peticion()
     }, [id])
-    console.log(avos)
+
 
     return (
         <Container>
@@ -32,9 +32,9 @@ export default function avos1() {
                             Volver atras
                         </Button>
                     </Link>
-                    <Link href="/carrito">
+                    <Link href="/">
                         <Button colorScheme='teal'>
-                            Agregar al carro
+                            Comprar
                         </Button>
                     </Link>
                 </Stack>
